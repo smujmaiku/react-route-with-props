@@ -27,7 +27,7 @@ const makeRoute = (props) => {
 	);
 
 	RouteWithProps.propTypes = {
-		Component: PropTypes.func.isRequired,
+		Component: PropTypes.any.isRequired,
 	};
 
 	return RouteWithProps;
