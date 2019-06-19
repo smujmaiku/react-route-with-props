@@ -9,7 +9,7 @@
     "test:ci": "jest",
     "test:coverage": "jest --coverage",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "build": "npx babel src/index.jsx --out-file build/index.js"
+    "build": "rm -rf build && mkdir build && npx babel src/index.jsx --out-file build/index.js"
   },
   "repository": {
     "type": "git",
