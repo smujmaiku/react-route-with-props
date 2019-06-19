@@ -9,24 +9,19 @@ install:
   - npm install
 jobs:
   include:
-    - stage: lint
-      node_js: v10
-      script: npm run lint
-
     - stage: test
       node_js: v10
-      script: npm run test:ci
+      script: 
+      - npm run lint
+      - npm run test:ci
+      - npm run coveralls
 
-    - stage: coveralls
-      node_js: v10
-      script: npm run coveralls
-    
     - stage: build
       node_js: v10
       if: branch = master AND type = push
       script: |
         npm run build
-        git add build/index.js
+        git add -f build/index.js
         if ! git diff --quiet; then
           git config --global user.email "travis@travis-ci.org"
           git config --global user.name "Travis-CI"
