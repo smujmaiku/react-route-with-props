@@ -21,7 +21,7 @@ jobs:
       if: branch = master AND type = push
       script: |
         npm run build
-        if ! git diff build --quiet; then
+        if ! git diff --quiet build; then
           git config --global user.email "travis@travis-ci.org"
           git config --global user.name "Travis-CI"
           git config credential.helper "store --file=.git/credentials"
