@@ -28,5 +28,5 @@ jobs:
           echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
           git add -f build
           git commit -m 'build [skip ci]'
-          git push origin HEAD:${TRAVIS_BRANCH}
+          git push origin HEAD:${TRAVIS_BRANCH} --quiet > /dev/null 2>&1
         fi
